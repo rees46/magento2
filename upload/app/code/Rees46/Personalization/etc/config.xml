@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 REES46, INC. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <rees46>
+            <general>
+                <cron_status>0</cron_status>
+                <log_status>1</log_status>
+            </general>
+        </rees46>
+    </default>
+</config>

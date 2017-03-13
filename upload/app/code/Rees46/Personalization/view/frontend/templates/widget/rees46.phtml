@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © 2017 REES46, INC. All rights reserved.
+ */
+?>
+<!-- BEGIN REES46 BLOCK -->
+<script type="text/javascript">
+<?php $data = $block->getData('settings'); ?>
+<?php echo $data['css']; ?>
+r46('recommend', '<?php echo $data['type']; ?>', <?php echo $data['params']; ?>, function(results) {
+	if (results.length > 0) {
+		require(['jquery'], function($) {
+			$('#rees46-recommended-<?php echo $data['module_id']; ?>').load('rees46/ajax/products?<?php echo http_build_query($data); ?>&product_ids=' + results);
+		});
+	}
+});
+</script>
+<div id="rees46-recommended-<?php echo $data['module_id']; ?>"></div>
+<!-- END REES46 BLOCK -->

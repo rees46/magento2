@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 REES46, INC. All rights reserved.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget id="rees46_recommendation" class="Rees46\Personalization\Block\Frontend\Widget\Recommendation" placeholder_image="Rees46_Personalization::image/rees46_widget.png">
+		<label translate="true">REES46 Recommendations</label>
+		<description translate="true">REES46 Product Recommendations Block</description>
+        <parameters>
+            <parameter name="block_type" xsi:type="select" required="true" visible="true" source_model="Rees46\Personalization\Model\Config\Source\Api\Type">
+                <label translate="true">Block Type</label>
+            </parameter>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Block Title</label>
+            </parameter>
+            <parameter name="limit" xsi:type="text" required="true" visible="true">
+                <label translate="true">Products Limit</label>
+                <value>5</value>
+            </parameter>
+            <parameter name="block_template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Recommendation Block Template</label>
+                <options>
+                    <option name="default" value="Rees46_Personalization::widget/default.phtml" selected="true">
+                        <label translate="true">Default Template</label>
+                    </option>
+                    <option name="basic" value="Rees46_Personalization::widget/basic.phtml">
+                        <label translate="true">REES46 Basic Template</label>
+                    </option>
+                    <option name="grid" value="Magento_CatalogWidget::product/widget/content/grid.phtml">
+                        <label translate="true">Products Grid Template</label>
+                    </option>
+                    <option name="new_grid" value="Magento_Catalog::product/widget/new/content/new_grid.phtml">
+                        <label translate="true">New Products Grid Template</label>
+                    </option>
+                    <option name="list" value="Magento_Catalog::product/widget/new/content/new_list.phtml">
+                        <label translate="true">New Products List Template</label>
+                    </option>
+                    <option name="list_default" value="Magento_Catalog::product/widget/new/column/new_default_list.phtml">
+                        <label translate="true">New Products Images and Names Template</label>
+                    </option>
+                    <option name="list_names" value="Magento_Catalog::product/widget/new/column/new_names_list.phtml">
+                        <label translate="true">New Products Names Only Template</label>
+                    </option>
+                    <option name="list_images" value="Magento_Catalog::product/widget/new/column/new_images_list.phtml">
+                        <label translate="true">New Products Images Only Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="discount" xsi:type="select" required="false" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Show Only Special Offers</label>
+                <value>0</value>
+            </parameter>
+            <parameter name="brands" xsi:type="multiselect" required="false" visible="true" source_model="Rees46\Personalization\Model\Config\Source\Product\Manufacturer">
+                <label translate="true">Show Only Products of Following Brands</label>
+            </parameter>
+            <parameter name="exclude_brands" xsi:type="multiselect" required="false" visible="true" source_model="Rees46\Personalization\Model\Config\Source\Product\Manufacturer">
+                <label translate="true">Exclude Products of Following Brands</label>
+            </parameter>
+        </parameters>
+	</widget>
+</widgets>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 REES46, INC. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_data_object_login">
+        <observer name="rees46_customer_data_object_login" instance="Rees46\Personalization\Observer\Customer" />
+    </event>
+    <event name="catalog_controller_product_view">
+        <observer name="rees46_catalog_controller_product_view" instance="Rees46\Personalization\Observer\Product" />
+    </event>
+    <event name="checkout_cart_save_after">
+        <observer name="rees46_checkout_cart_save_after" instance="Rees46\Personalization\Observer\Cart" />
+    </event>
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="rees46_checkout_onepage_controller_success_action" instance="Rees46\Personalization\Observer\Checkout" />
+    </event>
+    <event name="multishipping_checkout_controller_success_action">
+        <observer name="rees46_multishipping_checkout_controller_success_action" instance="Rees46\Personalization\Observer\Checkout" />
+    </event>
+</config>
