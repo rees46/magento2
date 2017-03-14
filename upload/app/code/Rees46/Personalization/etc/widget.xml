@@ -5,7 +5,7 @@
  */
 -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-	<widget id="rees46_recommendation" class="Rees46\Personalization\Block\Frontend\Widget\Recommendation" placeholder_image="Rees46_Personalization::image/rees46_widget.png">
+	<widget id="rees46_recommendation" class="Rees46\Personalization\Block\Frontend\Widget\Recommendation" placeholder_image="Rees46_Personalization::images/rees46_widget.png">
 		<label translate="true">REES46 Recommendations</label>
 		<description translate="true">REES46 Product Recommendations Block</description>
         <parameters>
