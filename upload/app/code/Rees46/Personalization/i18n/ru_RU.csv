@@ -38,8 +38,6 @@
 Name,Название
 Status,Статус
 "Export XML Product Feed","Экспорт YML-ссылки"
-Enabled,Включено
-Disabled,Отключено
 Repeat,Повторить
 "Export Orders","Экспорт заказов"
 "Export Customers","Экспорт покупателей"

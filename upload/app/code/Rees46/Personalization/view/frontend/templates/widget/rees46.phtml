@@ -10,7 +10,7 @@
 r46('recommend', '<?php echo $data['type']; ?>', <?php echo $data['params']; ?>, function(results) {
 	if (results.length > 0) {
 		require(['jquery'], function($) {
-			$('#rees46-recommended-<?php echo $data['module_id']; ?>').load('rees46/ajax/products?<?php echo http_build_query($data); ?>&product_ids=' + results);
+			$('#rees46-recommended-<?php echo $data['module_id']; ?>').load('<?php echo $block->getBaseUrl(); ?>rees46/ajax/products?<?php echo http_build_query($data); ?>&product_ids=' + results);
 		});
 	}
 });

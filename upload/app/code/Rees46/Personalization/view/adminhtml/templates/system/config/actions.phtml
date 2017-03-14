@@ -7,92 +7,92 @@
     <table class="data-table admin__table-primary edit-order-table">
         <thead>
             <tr class="headings">
-                <th class="col-name"><span><?php echo __('Name') ?></span></th>
-                <th class="col-status"><span><?php echo __('Status') ?></span></th>
+                <th class="col-name"><span><?php echo __('Name'); ?></span></th>
+                <th class="col-status"><span><?php echo __('Status'); ?></span></th>
                 <th class="col-repeat"></th>
             </tr>
         </thead>
             <tbody class="even">
                 <tr>
-                	<th class="col-name"><?php echo __('Export XML Product Feed') ?></th>
+                	<th class="col-name"><?php echo __('Export XML Product Feed'); ?></th>
                 	<th class="col-status">
-			            <?php if ($block->getActionStatus('rees46/actions/action_xml')) {
-			                echo __('Enabled');
-			            } else {
-			                echo __('Disabled');
-			            } ?>
+			            <?php if ($block->getActionStatus('rees46/actions/action_xml')) { ?>
+			                <span class="rees46-enabled-icon"></span>
+			            <?php } else { ?>
+			                <span class="rees46-disabled-icon"></span>
+			            <?php } ?>
                 	</th>
                 	<th class="col-repeat">
 			            <?php if (!$block->getActionStatus('rees46/actions/action_xml')) { ?>
-			                <button type="button" id="submitShopXML"><span><?php echo __('Repeat') ?></span></button>
+			                <button type="button" id="submitShopXML"><span><?php echo __('Repeat'); ?></span></button>
 			            <?php } ?>
                 	</th>
                 </tr>
             </tbody>
             <tbody class="odd">
                 <tr>
-                	<th class="col-name"><?php echo __('Export Orders') ?></th>
+                	<th class="col-name"><?php echo __('Export Orders'); ?></th>
                 	<th class="col-status">
-			            <?php if ($block->getActionStatus('rees46/actions/action_order')) {
-			                echo __('Enabled');
-			            } else {
-			                echo __('Disabled');
-			            } ?>
+			            <?php if ($block->getActionStatus('rees46/actions/action_order')) { ?>
+                            <span class="rees46-enabled-icon"></span>
+                        <?php } else { ?>
+                            <span class="rees46-disabled-icon"></span>
+                        <?php } ?>
                 	</th>
                 	<th class="col-repeat">
 			            <?php if (!$block->getActionStatus('rees46/actions/action_order')) { ?>
-			                <button type="button" id="submitShopOrders"><span><?php echo __('Repeat') ?></span></button>
+			                <button type="button" id="submitShopOrders"><span><?php echo __('Repeat'); ?></span></button>
 			            <?php } ?>
                 	</th>
                 </tr>
             </tbody>
             <tbody class="even">
                 <tr>
-                	<th class="col-name"><?php echo __('Export Customers') ?></th>
+                	<th class="col-name"><?php echo __('Export Customers'); ?></th>
                 	<th class="col-status">
-			            <?php if ($block->getActionStatus('rees46/actions/action_customer')) {
-			                echo __('Enabled');
-			            } else {
-			                echo __('Disabled');
-			            } ?>
+			            <?php if ($block->getActionStatus('rees46/actions/action_customer')) { ?>
+                            <span class="rees46-enabled-icon"></span>
+                        <?php } else { ?>
+                            <span class="rees46-disabled-icon"></span>
+                        <?php } ?>
                 	</th>
                 	<th class="col-repeat">
 			            <?php if (!$block->getActionStatus('rees46/actions/action_customer')) { ?>
-			                <button type="button" id="submitShopCustomers"><span><?php echo __('Repeat') ?></span></button>
+			                <button type="button" id="submitShopCustomers"><span><?php echo __('Repeat'); ?></span></button>
 			            <?php } ?>
                 	</th>
                 </tr>
             </tbody>
             <tbody class="odd">
                 <tr>
-                	<th class="col-name"><?php echo __('Load manifest.json') ?></th>
+                	<th class="col-name"><?php echo __('Load manifest.json'); ?></th>
                 	<th class="col-status">
-			            <?php if ($block->getActionStatus('rees46/actions/action_file1')) {
-			                echo __('Enabled');
-			            } else {
-			                echo __('Disabled');
-			            } ?>
+			            <?php if ($block->getActionStatus('rees46/actions/action_file1')) { ?>
+                            <span class="rees46-enabled-icon"></span>
+                        <?php } else { ?>
+                            <span class="rees46-disabled-icon"></span>
+                        <?php } ?>
                 	</th>
                 	<th class="col-repeat">
 			            <?php if (!$block->getActionStatus('rees46/actions/action_file1')) { ?>
-			                <button type="button" id="submitShopFile1"><span><?php echo __('Repeat') ?></span></button>
+			                <button type="button" id="submitShopFile1"><span><?php echo __('Repeat'); ?></span></button>
 			            <?php } ?>
                 	</th>
                 </tr>
             </tbody>
             <tbody class="even">
                 <tr>
-                	<th class="col-name"><?php echo __('Load push_sw.js') ?></th>
+                	<th class="col-name"><?php echo __('Load push_sw.js'); ?></th>
                 	<th class="col-status">
-			            <?php if ($block->getActionStatus('rees46/actions/action_file2')) {
-			                echo __('Enabled');
-			            } else {
-			                echo __('Disabled');
-			            } ?>
+			            <?php if ($block->getActionStatus('rees46/actions/action_file2')) { ?>
+                            <span class="rees46-enabled-icon"></span>
+                        <?php } else { ?>
+                            <span class="rees46-disabled-icon"></span>
+                        <?php } ?>
                 	</th>
                 	<th class="col-repeat">
 			            <?php if (!$block->getActionStatus('rees46/actions/action_file2')) { ?>
-			                <button type="button" id="submitShopFile2"><span><?php echo __('Repeat') ?></span></button>
+			                <button type="button" id="submitShopFile2"><span><?php echo __('Repeat'); ?></span></button>
 			            <?php } ?>
                 	</th>
                 </tr>

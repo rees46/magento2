@@ -38,8 +38,6 @@
 Name,Name
 Status,Status
 "Export XML Product Feed","Export XML Product Feed"
-Enabled,Enabled
-Disabled,Disabled
 Repeat,Repeat
 "Export Orders","Export Orders"
 "Export Customers","Export Customers"
