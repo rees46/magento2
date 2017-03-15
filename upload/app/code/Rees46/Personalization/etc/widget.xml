@@ -16,7 +16,7 @@
                 <label translate="true">Block Title</label>
             </parameter>
             <parameter name="limit" xsi:type="text" required="true" visible="true">
-                <label translate="true">Products Limit</label>
+                <label translate="true">Product Limit</label>
                 <value>5</value>
             </parameter>
             <parameter name="block_template" xsi:type="select" required="true" visible="true">
@@ -28,7 +28,7 @@
                     <option name="basic" value="Rees46_Personalization::widget/basic.phtml">
                         <label translate="true">REES46 Basic Template</label>
                     </option>
-                    <!--option name="grid" value="Magento_CatalogWidget::product/widget/content/grid.phtml">
+                    <option name="grid" value="Magento_CatalogWidget::product/widget/content/grid.phtml">
                         <label translate="true">Products Grid Template</label>
                     </option>
                     <option name="new_grid" value="Magento_Catalog::product/widget/new/content/new_grid.phtml">
@@ -45,7 +45,7 @@
                     </option>
                     <option name="list_images" value="Magento_Catalog::product/widget/new/column/new_images_list.phtml">
                         <label translate="true">New Products Images Only Template</label>
-                    </option-->
+                    </option>
                 </options>
             </parameter>
             <parameter name="discount" xsi:type="select" required="false" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">

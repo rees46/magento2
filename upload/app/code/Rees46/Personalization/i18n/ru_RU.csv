@@ -55,7 +55,7 @@ Register,Регистрация
 "Abandoned cart remarketing tool","ремаркетинг брошенных корзин"
 "REES46 dashboard","Панель настроек REES46"
 Documentation:,Документация:
-http://docs.rees46.com/display/en/Magento+2+Module,http://docs.rees46.com/display/en/Magento+2+Module
+http://docs.rees46.com/display/en/Magento+2.x+Extension,http://docs.rees46.com/display/R46D/Magento+2
 Send,Отправить
 More,Подробнее
 "Add to Cart","Добавить в корзину"
@@ -89,7 +89,7 @@ Actions,Действия
 "REES46 Product Recommendations Block","Блок товарных рекомендаций"
 "Block Type","Тип блока"
 "Block Title","Заголовок блока"
-"Products Limit","Лимит товаров"
+"Product Limit","Лимит товаров"
 "Recommendation Block Template","Шаблон блока товаров"
 "Default Template","По умолчанию"
 "REES46 Basic Template","Базовый REES46"

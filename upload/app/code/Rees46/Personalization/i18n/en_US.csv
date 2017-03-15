@@ -55,7 +55,7 @@ Register,Register
 "Abandoned cart remarketing tool","Abandoned cart remarketing tool"
 "REES46 dashboard","REES46 dashboard"
 Documentation:,Documentation:
-http://docs.rees46.com/display/en/Magento+2+Module,http://docs.rees46.com/display/en/Magento+2+Module
+http://docs.rees46.com/display/en/Magento+2.x+Extension,http://docs.rees46.com/display/en/Magento+2.x+Extension
 Send,Send
 More,More
 "Add to Cart","Add to Cart"
@@ -89,7 +89,7 @@ Actions,Actions
 "REES46 Product Recommendations Block","REES46 Product Recommendations Block"
 "Block Type","Block Type"
 "Block Title","Block Title"
-"Products Limit","Products Limit"
+"Product Limit","Product Limit"
 "Recommendation Block Template","Recommendation Block Template"
 "Default Template","Default Template"
 "REES46 Basic Template","REES46 Basic Template"

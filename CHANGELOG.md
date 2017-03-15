@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+* Added documentation link
+* Updated translations
+
 ## 1.0.1
 * Products ajax url fixed
 

@@ -33,8 +33,6 @@ class Recommendation extends \Magento\Framework\View\Element\Template implements
 	public function _toHtml()
 	{
 		if ($this->_config->isRees46Enabled()) {
-		    $params = array();
-
 		    $settings = array(
 		    	'type' => $this->getData('block_type'),
 		    	'title' => $this->getData('title'),
@@ -68,10 +66,12 @@ class Recommendation extends \Magento\Framework\View\Element\Template implements
 				$search_query = $this->_query->get()->getQueryText();
 			}
 
+			$params = array();
+
 			if ($settings['limit'] > 0) {
 				$params['limit'] = (int)$settings['limit'];
 			} else {
-				$params['limit'] = 5;
+				$params['limit'] = 4;
 			}
 
 			$params['discount'] = (int)$settings['discount'];
