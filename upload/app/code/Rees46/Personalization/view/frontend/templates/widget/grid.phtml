@@ -3,13 +3,11 @@
  * Copyright © 2017 REES46, INC. All rights reserved.
  */
 ?>
-<?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())):?>
+<?php if (($_products = $block->getProductCollection()) && $_products->getSize()): ?>
 <?php
     $type = 'widget-product-grid';
     $mode = 'grid';
     $image = 'new_products_content_widget_grid';
-    $title = $block->getTitle() ? __($block->getTitle()) : '';
-    $items = $block->getProductCollection()->getItems();
     $showWishlist = true;
     $showCompare = true;
     $showCart = true;
@@ -17,17 +15,17 @@
     $description = false;
 ?>
     <div class="block widget block-products-list <?php /* @escapeNotVerified */ echo $mode; ?>">
-        <?php if ($title):?>
-        <div class="block-title">
-            <strong><?php /* @escapeNotVerified */ echo $title; ?></strong>
-        </div>
+        <?php if ($block->getTitle()):?>
+            <div class="block-title">
+                <strong><?php /* @escapeNotVerified */ echo $block->getTitle(); ?></strong>
+            </div>
         <?php endif ?>
         <div class="block-content">
             <?php /* @escapeNotVerified */ echo '<!-- ' . $image . '-->' ?>
             <div class="products-<?php /* @escapeNotVerified */ echo $mode; ?> <?php /* @escapeNotVerified */ echo $mode; ?>">
                 <ol class="product-items <?php /* @escapeNotVerified */ echo $type; ?>">
                     <?php $iterator = 1; ?>
-                    <?php foreach ($items as $_item): ?>
+                    <?php foreach ($_products->getItems() as $_item): ?>
                         <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
                         <div class="product-item-info">
                             <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>" class="product-item-photo">
@@ -41,14 +39,10 @@
                                         <?php echo $block->escapeHtml($_item->getName()) ?>
                                     </a>
                                 </strong>
-                                <?php
-                                echo $block->getProductPriceHtml($_item, $type);
-                                ?>
-
+                                <?php echo $block->getProductPriceHtml($_item, $type); ?>
                                 <?php if ($templateType): ?>
                                     <?php echo $block->getReviewsSummaryHtml($_item, $templateType) ?>
                                 <?php endif; ?>
-
                                 <?php if ($showWishlist || $showCompare || $showCart): ?>
                                     <div class="product-item-actions">
                                         <?php if ($showCart): ?>
@@ -104,7 +98,7 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <?php echo($iterator == count($items)+1) ? '</li>' : '' ?>
+                        <?php echo($iterator == count($_products->getItems())+1) ? '</li>' : '' ?>
                     <?php endforeach ?>
                 </ol>
             </div>

@@ -3,9 +3,9 @@
  * Copyright © 2017 REES46, INC. All rights reserved.
  */
 ?>
-<!-- BEGIN REES46 BLOCK -->
-<script type="text/javascript">
 <?php $data = $block->getData('settings'); ?>
+<!-- BEGIN REES46 BLOCK <?php echo $data['module_id']; ?> -->
+<script type="text/javascript">
 <?php echo $data['css']; ?>
 r46('recommend', '<?php echo $data['type']; ?>', <?php echo $data['params']; ?>, function(results) {
 	if (results.length > 0) {
@@ -16,4 +16,4 @@ r46('recommend', '<?php echo $data['type']; ?>', <?php echo $data['params']; ?>,
 });
 </script>
 <div id="rees46-recommended-<?php echo $data['module_id']; ?>"></div>
-<!-- END REES46 BLOCK -->
+<!-- END REES46 BLOCK <?php echo $data['module_id']; ?> -->

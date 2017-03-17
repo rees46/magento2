@@ -63,6 +63,8 @@ More,Подробнее
 "Out of stock","Нет в наличии"
 "Add to Wish List","Добавить в закладки"
 "Add to Compare","Добавить в сравнение"
+"Learn More","Подробнее"
+Availability,Наличие
 REES46,REES46
 Settings,Настройки
 "Authorization Form","Форма авторизации"
@@ -91,14 +93,12 @@ Actions,Действия
 "Block Title","Заголовок блока"
 "Product Limit","Лимит товаров"
 "Recommendation Block Template","Шаблон блока товаров"
-"Default Template","По умолчанию"
-"REES46 Basic Template","Базовый REES46"
+"REES46 Basic Template","Базовый шаблон REES46"
 "Products Grid Template","Шаблон сетки товаров"
-"New Products Grid Template","Новые товары - шаблон в виде сетки"
-"New Products List Template","Новые товары - шаблон в виде списка"
-"New Products Images and Names Template","Новые товары - шаблон с названием и изображением"
-"New Products Names Only Template","Новые товары - шаблон только с названием"
-"New Products Images Only Template","Новые товары - шаблон только с изображением"
+"Products List Template","Шаблон списка товаров"
+"Products Images and Names List Template","Шаблон списка с названием и изображением"
+"Products Images Only List Template","Шаблон списка с изображением"
+"Products Names Only List Template","Шаблон списка с названием"
 "Show Only Special Offers","Только акционные товары"
 "Show Only Products of Following Brands","Товары только этих брендов"
 "Exclude Products of Following Brands","Исключить товары этих брендов"

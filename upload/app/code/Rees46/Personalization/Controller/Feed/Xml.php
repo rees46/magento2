@@ -26,7 +26,7 @@ class Xml extends \Magento\Framework\App\Action\Action
         $this->_data = $data;
         $this->_logger = $logger;
 
-        parent::__construct($context, $forward, $config, $data, $logger);
+        parent::__construct($context);
     }
 
     public function execute()

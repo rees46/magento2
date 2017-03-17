@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © 2017 REES46, INC. All rights reserved.
+ */
+?>
+<?php if (($_products = $block->getProductCollection()) && $_products->getSize()): ?>
+    <div class="block widget block-new-products-names">
+        <?php if ($block->getTitle()):?>
+            <div class="block-title">
+                <strong><?php /* @escapeNotVerified */ echo $block->getTitle() ?></strong>
+            </div>
+        <?php endif ?>
+        <div class="block-content">
+            <ol class="product-items product-items-names">
+                <?php foreach ($_products->getItems() as $_item): ?>
+                    <li class="product-item">
+                        <strong class="product-item-name">
+                            <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>"
+                               title="<?php /* @escapeNotVerified */ echo $block->stripTags($_item->getName(), null, true) ?>"
+                               class="product-item-link">
+                                <?php /* @escapeNotVerified */ echo $_item->getName() ?>
+                            </a>
+                        </strong>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    </div>
+<?php endif; ?>

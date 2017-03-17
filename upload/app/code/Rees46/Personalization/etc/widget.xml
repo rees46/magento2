@@ -22,29 +22,23 @@
             <parameter name="block_template" xsi:type="select" required="true" visible="true">
                 <label translate="true">Recommendation Block Template</label>
                 <options>
-                    <option name="default" value="Rees46_Personalization::widget/default.phtml" selected="true">
-                        <label translate="true">Default Template</label>
-                    </option>
-                    <option name="basic" value="Rees46_Personalization::widget/basic.phtml">
+                    <option name="basic" value="widget/basic.phtml">
                         <label translate="true">REES46 Basic Template</label>
                     </option>
-                    <option name="grid" value="Magento_CatalogWidget::product/widget/content/grid.phtml">
+                    <option name="grid" value="widget/grid.phtml" selected="true">
                         <label translate="true">Products Grid Template</label>
                     </option>
-                    <option name="new_grid" value="Magento_Catalog::product/widget/new/content/new_grid.phtml">
-                        <label translate="true">New Products Grid Template</label>
+                    <option name="list" value="widget/list.phtml" selected="true">
+                        <label translate="true">Products List Template</label>
                     </option>
-                    <option name="list" value="Magento_Catalog::product/widget/new/content/new_list.phtml">
-                        <label translate="true">New Products List Template</label>
+                    <option name="list_full" value="widget/list_full.phtml" selected="true">
+                        <label translate="true">Products Images and Names List Template</label>
                     </option>
-                    <option name="list_default" value="Magento_Catalog::product/widget/new/column/new_default_list.phtml">
-                        <label translate="true">New Products Images and Names Template</label>
+                    <option name="list_images" value="widget/list_images.phtml" selected="true">
+                        <label translate="true">Products Images Only List Template</label>
                     </option>
-                    <option name="list_names" value="Magento_Catalog::product/widget/new/column/new_names_list.phtml">
-                        <label translate="true">New Products Names Only Template</label>
-                    </option>
-                    <option name="list_images" value="Magento_Catalog::product/widget/new/column/new_images_list.phtml">
-                        <label translate="true">New Products Images Only Template</label>
+                    <option name="list_names" value="widget/list_names.phtml" selected="true">
+                        <label translate="true">Products Names Only List Template</label>
                     </option>
                 </options>
             </parameter>

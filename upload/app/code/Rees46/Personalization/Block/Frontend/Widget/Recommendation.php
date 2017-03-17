@@ -44,7 +44,7 @@ class Recommendation extends \Magento\Framework\View\Element\Template implements
 		    	'css' => '',
 		    );
 
-			if ($settings['template'] == 'Rees46_Personalization::widget/basic.phtml') {
+			if ($settings['template'] == 'widget/basic.phtml') {
 				$settings['css'] = 'r46(\'add_css\', \'recommendations\');' . "\n";
 			}
 

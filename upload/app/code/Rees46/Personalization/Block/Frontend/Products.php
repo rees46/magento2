@@ -52,6 +52,54 @@ class Products extends \Magento\CatalogWidget\Block\Product\ProductsList
         return '#';
     }
 
+    public function getProductPriceHtml(
+        \Magento\Catalog\Model\Product $product,
+        $priceType = null,
+        $renderZone = \Magento\Framework\Pricing\Render::ZONE_ITEM_LIST,
+        array $arguments = []
+    )
+    {
+        if (!isset($arguments['zone'])) {
+            $arguments['zone'] = $renderZone;
+        }
+        $arguments['price_id']              = isset($arguments['price_id'])
+            ? $arguments['price_id']
+            : 'old-price-' . $product->getId() . '-' . $priceType;
+        $arguments['include_container']     = isset($arguments['include_container'])
+            ? $arguments['include_container']
+            : true;
+        $arguments['display_minimal_price'] = isset($arguments['display_minimal_price'])
+            ? $arguments['display_minimal_price']
+            : true;
+
+        /** @var \Magento\Framework\Pricing\Render $priceRender */
+        $priceRender = $this->getLayout()->getBlock('product.price.render.default');
+
+        if (!$priceRender) {
+            $priceRender = $this->getLayout()->createBlock(
+                \Magento\Framework\Pricing\Render::class,
+                'product.price.render.default',
+                [
+                    'data' => [
+                        'price_render_handle' => 'catalog_product_prices',
+                    ],
+                ]
+            );
+        }
+
+        $price = '';
+
+        if ($priceRender) {
+            $price = $priceRender->render(
+                \Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE,
+                $product,
+                $arguments
+            );
+        }
+
+        return $price;
+    }
+
     public function createCollection()
     {
         $product_ids = [];
@@ -62,17 +110,28 @@ class Products extends \Magento\CatalogWidget\Block\Product\ProductsList
         $collection = $this->productCollectionFactory->create();
         $collection->setVisibility($this->catalogProductVisibility->getVisibleInCatalogIds());
         $collection = $this->_addProductAttributesAndPrices($collection)
-            ->addAttributeToFilter('entity_id', ['in' => $product_ids])
             ->addAttributeToFilter('visibility', \Magento\Catalog\Model\Product\Visibility::VISIBILITY_BOTH)
             ->addAttributeToFilter('status', \Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED)
-            ->addFinalPrice()
-            ->addPriceData()
-            ->addStoreFilter()
-            ->setPageSize($this->getParam('limit'))
-            ->setCurPage(1);
-        $conditions = $this->getConditions();
-        $conditions->collectValidatedAttributes($collection);
-        $this->sqlBuilder->attachConditionToCollection($collection, $conditions);
+            ->addAttributeToFilter('entity_id', ['in' => $product_ids])
+            ->addStoreFilter();
+
+        if ($this->getParam('discount')) {
+            $collection->getSelect()->where('price_index.final_price < price_index.price');
+        }
+
+        if ($this->getParam('brands')) {
+            $brands = explode(',', $this->getParam('brands'));
+
+            $collection->addAttributeToFilter('manufacturer', ['in' => $brands]);
+        }
+
+        if ($this->getParam('exclude_brands')) {
+            $exclude_brands = explode(',', $this->getParam('exclude_brands'));
+
+            $collection->addAttributeToFilter('manufacturer', ['nin' => $exclude_brands]);
+        }
+
+        $collection->setPageSize($this->getParam('limit'))->setCurPage(1);
 
         foreach ($collection->getItems() as $product_id) {
             $collection_ids[] = $product_id->getEntityId();

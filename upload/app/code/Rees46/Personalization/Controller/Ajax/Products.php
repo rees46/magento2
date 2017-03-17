@@ -21,7 +21,7 @@ class Products extends \Magento\Framework\App\Action\Action
         $this->_layoutFactory = $layoutFactory;
         $this->_resultRawFactory = $resultRawFactory;
 
-        parent::__construct($context, $config, $layoutFactory, $resultRawFactory);
+        parent::__construct($context);
     }
 
     public function execute()

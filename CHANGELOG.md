@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+* New block templates
+* Added block filters
+* Fixed compilation errors
+* Updated translations
+
 ## 1.0.2
 * Added documentation link
 * Updated translations

@@ -4,27 +4,23 @@
  */
 namespace Rees46\Personalization\Helper;
 
-use Magento\Store\Model\ScopeInterface;
-
 class Config extends \Magento\Framework\App\Helper\AbstractHelper
 {
-	protected $_scopeConfig;
     protected $_resourceConfig;
 
     public function __construct(
 		\Magento\Framework\App\Helper\Context $context,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Config\Model\ResourceModel\Config $resourceConfig
 	)
 	{
-		$this->_scopeConfig = $scopeConfig;
         $this->_resourceConfig = $resourceConfig;
+
         parent::__construct($context);
 	}
 
     public function getValue($path, $scope = 'default', $scopeId = 0)
     {
-        return $this->_scopeConfig->getValue($path, $scope, $scopeId);
+        return $this->scopeConfig->getValue($path, $scope, $scopeId);
     }
 
     public function setValue($path, $value, $scope = 'default', $scopeId = 0)
