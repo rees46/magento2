@@ -22,22 +22,22 @@
             <parameter name="block_template" xsi:type="select" required="true" visible="true">
                 <label translate="true">Recommendation Block Template</label>
                 <options>
-                    <option name="basic" value="widget/basic.phtml">
+                    <option name="basic" value="widget/basic.phtml" selected="true">
                         <label translate="true">REES46 Basic Template</label>
                     </option>
-                    <option name="grid" value="widget/grid.phtml" selected="true">
+                    <option name="grid" value="widget/grid.phtml">
                         <label translate="true">Products Grid Template</label>
                     </option>
-                    <option name="list" value="widget/list.phtml" selected="true">
+                    <option name="list" value="widget/list.phtml">
                         <label translate="true">Products List Template</label>
                     </option>
-                    <option name="list_full" value="widget/list_full.phtml" selected="true">
+                    <option name="list_full" value="widget/list_full.phtml">
                         <label translate="true">Products Images and Names List Template</label>
                     </option>
-                    <option name="list_images" value="widget/list_images.phtml" selected="true">
+                    <option name="list_images" value="widget/list_images.phtml">
                         <label translate="true">Products Images Only List Template</label>
                     </option>
-                    <option name="list_names" value="widget/list_names.phtml" selected="true">
+                    <option name="list_names" value="widget/list_names.phtml">
                         <label translate="true">Products Names Only List Template</label>
                     </option>
                 </options>
