@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+* Added dashboard button (API)
+* New widget image
+
 ## 1.1.0
 * New block templates
 * Added block filters

@@ -456,6 +456,24 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
         return $json;
     }
 
+    public function rees46Dashboard()
+    {
+        if ($this->_config->getValue('rees46/general/api_key') != '' && $this->_config->getValue('rees46/general/api_secret') == '') {
+            $url = 'https://rees46.com/api/customers/login';
+            $api_key = $this->_config->getValue('rees46/general/api_key');
+            $api_secret = $this->_config->getValue('rees46/general/api_secret');
+
+            $json['form']  = '<form action="' . $url . '" method="post" id="formDashboard" target="_blank">';
+            $json['form'] .= '<input type="hidden" name="api_key" value="' . $api_key . '">';
+            $json['form'] .= '<input type="hidden" name="api_secret" value="' . $api_secret . '">';
+            $json['form'] .= '</form>';
+        } else {
+            $json['url'] = 'https://rees46.com/customers/sign_in';
+        }
+
+        return $json;
+    }
+
     public function rees46DisableProduct($product_id)
     {
         $curl_data['shop_id'] = $this->_config->getValue('rees46/general/store_key');

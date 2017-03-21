@@ -1,8 +1,6 @@
-<!--
 /**
  * Copyright © 2017 REES46, INC. All rights reserved.
  */
--->
 function rees46Init() {
     require(['jquery'], function($){
         $('#container').prepend('<div class="messages" id="rees46_messages"></div>');
@@ -43,6 +41,10 @@ function rees46Init() {
 
         $('#submitShopFile2').click(function() {
             rees46ShopFiles();
+        });
+
+        $('#submitDashboard').click(function() {
+            rees46Dashboard();
         });
 
         rees46LeadTracking();
@@ -329,6 +331,37 @@ function rees46ShopFinish() {
                 setTimeout(function() {
                     location.reload();
                 }, 2000);
+            }
+        });
+
+        return false;
+    });
+}
+
+function rees46Dashboard() {
+    require(['jquery'], function($){
+        $.ajax({
+            url: rees46AjaxUrl,
+            data: {
+                form_key: window.FORM_KEY,
+                action: 'rees46Dashboard',
+            },
+            type: 'post',
+            dataType: 'json',
+            showLoader: true
+        }).done(function(json) {
+            $('#formDashboard').remove();
+
+            if (json['form']) {
+                $('body').append(json['form']);
+
+                setTimeout(function() {
+                    $('#formDashboard').submit();
+                }, 500);
+            }
+
+            if (json['url']) {
+                window.open(json['url'], '_blank');
             }
         });
 
