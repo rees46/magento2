@@ -60,13 +60,13 @@ class Xml extends \Magento\Framework\App\Action\Action
 
                     $this->recorder($xml, 'a');
 
-                    header('Content-Type: application/xml; charset=utf-8');
-                    echo file_get_contents($this->file());
+                    $this->getResponse()->setHeader('Content-type', 'application/xml; charset=utf-8');
+                    $this->getResponse()->setBody(file_get_contents($this->file()));
                 }
             } else {
                 if (is_file($this->fileCron()) && $this->_config->isCronEnabled()) {
-                    header('Content-Type: application/xml; charset=utf-8');
-                    echo file_get_contents($this->fileCron());
+                    $this->getResponse()->setHeader('Content-type', 'application/xml; charset=utf-8');
+                    $this->getResponse()->setBody(file_get_contents($this->fileCron()));
                 } else {
                     $this->recorder('', 'w+');
 

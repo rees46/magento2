@@ -9,17 +9,17 @@ class OrderStatus implements \Magento\Framework\Event\ObserverInterface
     protected $_config;
     protected $_api;
 
-	public function __construct(
-		\Rees46\Personalization\Helper\Config $config,
+    public function __construct(
+        \Rees46\Personalization\Helper\Config $config,
         \Rees46\Personalization\Helper\Api $api
-	)
-	{
+    )
+    {
         $this->_config = $config;
         $this->_api = $api;
-	}
+    }
 
-	public function execute(\Magento\Framework\Event\Observer $observer)
-	{
+    public function execute(\Magento\Framework\Event\Observer $observer)
+    {
         $order = $observer->getEvent()->getOrder();
 
         $old_status = $order->getOrigData('status');
@@ -50,5 +50,5 @@ class OrderStatus implements \Magento\Framework\Event\ObserverInterface
                 $this->_api->rees46SyncOrders($order_data, $order_status_id);
             }
         }
-	}
+    }
 }

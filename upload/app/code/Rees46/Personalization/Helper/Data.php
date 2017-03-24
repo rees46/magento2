@@ -7,7 +7,7 @@ namespace Rees46\Personalization\Helper;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     protected $_objectManager;
-	protected $_store;
+    protected $_store;
     protected $_storeInfo;
     protected $_auth;
     protected $_orders;
@@ -20,10 +20,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     protected $_category;
     protected $_directory;
 
-	public function __construct(
-		\Magento\Framework\App\Helper\Context $context,
+    public function __construct(
+        \Magento\Framework\App\Helper\Context $context,
         \Magento\Framework\ObjectManagerInterface $objectManager,
-		\Magento\Store\Model\StoreManagerInterface $store,
+        \Magento\Store\Model\StoreManagerInterface $store,
         \Magento\Store\Model\Information $storeInfo,
         \Magento\Backend\Model\Auth\Session $auth,
         \Magento\Sales\Model\ResourceModel\Order\CollectionFactory $orders,
@@ -35,10 +35,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         \Magento\Directory\Model\CurrencyFactory $currency,
         \Magento\Catalog\Helper\Category $category,
         \Magento\Framework\App\Filesystem\DirectoryList $directory
-	)
-	{
+    )
+    {
         $this->_objectManager = $objectManager;
-		$this->_store = $store;
+        $this->_store = $store;
         $this->_storeInfo = $storeInfo;
         $this->_auth = $auth;
         $this->_orders = $orders;
@@ -51,8 +51,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $this->_category = $category;
         $this->_directory = $directory;
 
-		parent::__construct($context);
-	}
+        parent::__construct($context);
+    }
 
     public function getVersion()
     {

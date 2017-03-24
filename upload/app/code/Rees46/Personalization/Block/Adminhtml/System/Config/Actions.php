@@ -24,7 +24,7 @@ class Actions extends \Magento\Config\Block\System\Config\Form\Field
         parent::_prepareLayout();
 
         if (!$this->getTemplate()) {
-        	$this->setTemplate('system/config/actions.phtml');
+            $this->setTemplate('system/config/actions.phtml');
         }
 
         return $this;

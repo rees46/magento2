@@ -1,49 +1,50 @@
 /**
  * Copyright © 2017 REES46, INC. All rights reserved.
  */
-function rees46Init() {
-    require(['jquery'], function($){
+function rees46Init()
+{
+    require(['jquery'], function ($) {
         $('#container').prepend('<div class="messages" id="rees46_messages"></div>');
 
-        $('#rees46_login_button').click(function() {
+        $('#rees46_login_button').click(function () {
             $('#rees46_auth_block + .section-config').fadeIn();
             $('#rees46_auth_block + div + .section-config').css('display', 'none');
         });
 
-        $('#rees46_register_button').click(function() {
+        $('#rees46_register_button').click(function () {
             $('#rees46_auth_block + .section-config').css('display', 'none');
             $('#rees46_auth_block + div + .section-config').fadeIn();
         });
 
-        $('#submitUserRegister').click(function() {
+        $('#submitUserRegister').click(function () {
             rees46UserRegister();
         });
 
-        $('#submitShopLogin').click(function() {
+        $('#submitShopLogin').click(function () {
             rees46ShopXML(true);
         });
 
-        $('#submitShopXML').click(function() {
+        $('#submitShopXML').click(function () {
             rees46ShopXML();
         });
 
-        $('#submitShopOrders').click(function() {
+        $('#submitShopOrders').click(function () {
             rees46ShopOrders();
         });
 
-        $('#submitShopCustomers').click(function() {
+        $('#submitShopCustomers').click(function () {
             rees46ShopCustomers();
         });
 
-        $('#submitShopFile1').click(function() {
+        $('#submitShopFile1').click(function () {
             rees46ShopFiles();
         });
 
-        $('#submitShopFile2').click(function() {
+        $('#submitShopFile2').click(function () {
             rees46ShopFiles();
         });
 
-        $('#submitDashboard').click(function() {
+        $('#submitDashboard').click(function () {
             rees46Dashboard();
         });
 
@@ -51,8 +52,9 @@ function rees46Init() {
     });
 }
 
-function rees46LeadTracking() {
-    require(['jquery'], function($){
+function rees46LeadTracking()
+{
+    require(['jquery'], function ($) {
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -68,8 +70,9 @@ function rees46LeadTracking() {
     });
 }
 
-function rees46UserRegister() {
-    require(['jquery'], function($){
+function rees46UserRegister()
+{
+    require(['jquery'], function ($) {
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -85,9 +88,9 @@ function rees46UserRegister() {
             type: 'post',
             dataType: 'json',
             showLoader: true
-        }).done(function(json) {
+        }).done(function (json) {
             $('#rees46_messages').empty();
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('html, body').animate({scrollTop: 0}, 'slow');
 
             if (json.success) {
                 $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + json.success + '</div></div>');
@@ -106,8 +109,9 @@ function rees46UserRegister() {
     });
 }
 
-function rees46ShopRegister() {
-    require(['jquery'], function($){
+function rees46ShopRegister()
+{
+    require(['jquery'], function ($) {
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -117,9 +121,9 @@ function rees46ShopRegister() {
             type: 'post',
             dataType: 'json',
             showLoader: true
-        }).done(function(json) {
+        }).done(function (json) {
             $('#rees46_messages').empty();
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('html, body').animate({scrollTop: 0}, 'slow');
 
             if (json.success) {
                 $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + json.success + '</div></div>');
@@ -138,8 +142,9 @@ function rees46ShopRegister() {
     });
 }
 
-function rees46ShopXML(auth = false) {
-    require(['jquery'], function($){
+function rees46ShopXML(auth = false)
+{
+    require(['jquery'], function ($) {
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -151,9 +156,9 @@ function rees46ShopXML(auth = false) {
             type: 'post',
             dataType: 'json',
             showLoader: true
-        }).done(function(json) {
+        }).done(function (json) {
             $('#rees46_messages').empty();
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('html, body').animate({scrollTop: 0}, 'slow');
 
             if (json.success) {
                 $('#submitShopXML').remove();
@@ -176,8 +181,9 @@ function rees46ShopXML(auth = false) {
     });
 }
 
-function rees46ShopOrders(next = 1, auth = false) {
-    require(['jquery'], function($){
+function rees46ShopOrders(next = 1, auth = false)
+{
+    require(['jquery'], function ($) {
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -188,9 +194,9 @@ function rees46ShopOrders(next = 1, auth = false) {
             type: 'post',
             dataType: 'json',
             showLoader: true
-        }).done(function(json) {
+        }).done(function (json) {
             $('#rees46_messages').empty();
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('html, body').animate({scrollTop: 0}, 'slow');
 
             if (json.success) {
                 $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + json.success + '</div></div>');
@@ -219,8 +225,9 @@ function rees46ShopOrders(next = 1, auth = false) {
     });
 }
 
-function rees46ShopCustomers(next = 1, auth = false) {
-    require(['jquery'], function($){
+function rees46ShopCustomers(next = 1, auth = false)
+{
+    require(['jquery'], function ($) {
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -231,9 +238,9 @@ function rees46ShopCustomers(next = 1, auth = false) {
             type: 'post',
             dataType: 'json',
             showLoader: true
-        }).done(function(json) {
+        }).done(function (json) {
             $('#rees46_messages').empty();
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('html, body').animate({scrollTop: 0}, 'slow');
 
             if (json.success) {
                 $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + json.success + '</div></div>');
@@ -262,8 +269,9 @@ function rees46ShopCustomers(next = 1, auth = false) {
     });
 }
 
-function rees46ShopFiles(auth = false) {
-    require(['jquery'], function($){
+function rees46ShopFiles(auth = false)
+{
+    require(['jquery'], function ($) {
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -273,15 +281,15 @@ function rees46ShopFiles(auth = false) {
             type: 'post',
             dataType: 'json',
             showLoader: true
-        }).done(function(json) {
+        }).done(function (json) {
             $('#rees46_messages').empty();
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('html, body').animate({scrollTop: 0}, 'slow');
 
             if (json.success) {
                 $('#submitShopFile1').remove();
                 $('#submitShopFile2').remove();
 
-                $.map(json.success, function(success) {
+                $.map(json.success, function (success) {
                     $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + success + '</div></div>');
                 });
             }
@@ -289,7 +297,7 @@ function rees46ShopFiles(auth = false) {
             if (json.message) {
                 $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.message + '</div></div>');
             } else if (json.error) {
-                $.map(json.error, function(error) {
+                $.map(json.error, function (error) {
                     $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + error + '</div></div>');
                 });
             }
@@ -298,7 +306,7 @@ function rees46ShopFiles(auth = false) {
                 if ($('#rees46_login_store_key').val() == '' && $('#rees46_login_secret_key').val() == '') {
                     rees46ShopFinish();
                 } else {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         location.reload();
                     }, 1000);
                 }
@@ -309,8 +317,9 @@ function rees46ShopFiles(auth = false) {
     });
 }
 
-function rees46ShopFinish() {
-    require(['jquery'], function($){
+function rees46ShopFinish()
+{
+    require(['jquery'], function ($) {
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -320,15 +329,15 @@ function rees46ShopFinish() {
             type: 'post',
             dataType: 'json',
             showLoader: true
-        }).done(function(json) {
+        }).done(function (json) {
             if (json) {
                 $('body').append(json);
 
-                setTimeout(function() {
+                setTimeout(function () {
                     $('#submitShopFinish').submit();
                 }, 1000);
 
-                setTimeout(function() {
+                setTimeout(function () {
                     location.reload();
                 }, 2000);
             }
@@ -338,8 +347,9 @@ function rees46ShopFinish() {
     });
 }
 
-function rees46Dashboard() {
-    require(['jquery'], function($){
+function rees46Dashboard()
+{
+    require(['jquery'], function ($) {
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -349,13 +359,13 @@ function rees46Dashboard() {
             type: 'post',
             dataType: 'json',
             showLoader: true
-        }).done(function(json) {
+        }).done(function (json) {
             $('#formDashboard').remove();
 
             if (json['form']) {
                 $('body').append(json['form']);
 
-                setTimeout(function() {
+                setTimeout(function () {
                     $('#formDashboard').submit();
                 }, 500);
             }

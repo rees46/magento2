@@ -11,18 +11,18 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
     protected $_data;
     protected $_logger;
 
-	public function __construct(
+    public function __construct(
         \Rees46\Personalization\Helper\Config $config,
         \Rees46\Personalization\Helper\Curl $curl,
         \Rees46\Personalization\Helper\Data $data,
         \Rees46\Personalization\Helper\Logger $logger
-	)
-	{
+    )
+    {
         $this->_config = $config;
         $this->_curl = $curl;
         $this->_data = $data;
         $this->_logger = $logger;
-	}
+    }
 
     public function rees46ShopCategories()
     {

@@ -4,30 +4,30 @@
  */
 ?>
 <?php if (($_products = $block->getProductCollection()) && $_products->getSize()): ?>
-	<?php $_helper = $this->helper('Magento\Framework\Pricing\Helper\Data'); ?>
-	<div class="rees46 rees46-recommend">
-		<?php if ($block->getTitle()):?>
-			<div class="recommender-block-title"><?php echo $block->getTitle(); ?></div>
-		<?php endif ?>
-		<div class="recommended-items">
-			<?php foreach ($_products->getItems() as $_item): ?>
-			<div class="recommended-item">
-				<div class="recommended-item-photo">
-					<a href="<?php echo $block->getProductUrl($_item); ?>">
-						<img src="<?php echo $block->getImage($_item, 'new_products_content_widget_grid')->getImageUrl(); ?>" alt="<?php echo $block->escapeHtml($_item->getName()); ?>" />
-					</a>
-				</div>
-				<div class="recommended-item-title">
-					<a href="<?php echo $block->getProductUrl($_item); ?>"><?php echo $block->escapeHtml($_item->getName()); ?></a>
-				</div>
-				<div class="recommended-item-price">
-					<?php echo $_helper->currency($_item->getPriceInfo()->getPrice('final_price')->getValue(), true, false); ?>
-				</div>
-				<div class="recommended-item-action">
-					<a href="<?php echo $block->getProductUrl($_item); ?>"><?php echo __('More'); ?></a>
-				</div>
-			</div>
-			<?php endforeach ?>
-		</div>
-	</div>
+    <?php $_helper = $this->helper('Magento\Framework\Pricing\Helper\Data'); ?>
+    <div class="rees46 rees46-recommend">
+        <?php if ($block->getTitle()):?>
+            <div class="recommender-block-title"><?php echo $block->getTitle(); ?></div>
+        <?php endif ?>
+        <div class="recommended-items">
+            <?php foreach ($_products->getItems() as $_item): ?>
+            <div class="recommended-item">
+                <div class="recommended-item-photo">
+                    <a href="<?php echo $block->getProductUrl($_item); ?>">
+                        <img src="<?php echo $block->getImage($_item, 'new_products_content_widget_grid')->getImageUrl(); ?>" alt="<?php echo $block->escapeHtml($_item->getName()); ?>" />
+                    </a>
+                </div>
+                <div class="recommended-item-title">
+                    <a href="<?php echo $block->getProductUrl($_item); ?>"><?php echo $block->escapeHtml($_item->getName()); ?></a>
+                </div>
+                <div class="recommended-item-price">
+                    <?php echo $_helper->currency($_item->getPriceInfo()->getPrice('final_price')->getValue(), true, false); ?>
+                </div>
+                <div class="recommended-item-action">
+                    <a href="<?php echo $block->getProductUrl($_item); ?>"><?php echo __('More'); ?></a>
+                </div>
+            </div>
+            <?php endforeach ?>
+        </div>
+    </div>
 <?php endif;?>

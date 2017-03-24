@@ -9,14 +9,14 @@ class Config extends \Magento\Framework\App\Helper\AbstractHelper
     protected $_resourceConfig;
 
     public function __construct(
-		\Magento\Framework\App\Helper\Context $context,
+        \Magento\Framework\App\Helper\Context $context,
         \Magento\Config\Model\ResourceModel\Config $resourceConfig
-	)
-	{
+    )
+    {
         $this->_resourceConfig = $resourceConfig;
 
         parent::__construct($context);
-	}
+    }
 
     public function getValue($path, $scope = 'default', $scopeId = 0)
     {

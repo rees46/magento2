@@ -27,7 +27,7 @@ class Help extends \Magento\Config\Block\System\Config\Form\Field
             if (!$this->_config->isRees46Enabled()) {
                 $this->setTemplate('system/config/help.phtml');
             } else {
-            	$this->setTemplate('system/config/help_auth.phtml');
+                $this->setTemplate('system/config/help_auth.phtml');
             }
         }
 

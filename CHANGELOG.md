@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.0
+* Validation fixes
+
 ## 1.1.1
 * Added dashboard button (API)
 * New widget image

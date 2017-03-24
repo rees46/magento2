@@ -8,15 +8,15 @@ class Cart implements \Magento\Framework\Event\ObserverInterface
 {
     protected $_cookie;
 
-	public function __construct(
-		\Rees46\Personalization\Helper\Cookie $cookie
-	)
-	{
+    public function __construct(
+        \Rees46\Personalization\Helper\Cookie $cookie
+    )
+    {
         $this->_cookie = $cookie;
-	}
+    }
 
-	public function execute(\Magento\Framework\Event\Observer $observer)
-	{
+    public function execute(\Magento\Framework\Event\Observer $observer)
+    {
         $js_data = array();
 
         foreach ($observer->getEvent()->getData('cart')->getQuote()->getAllVisibleItems() as $product) {
@@ -33,5 +33,5 @@ class Cart implements \Magento\Framework\Event\ObserverInterface
         }
 
         $this->_cookie->set('rees46_cart', $js);
-	}
+    }
 }

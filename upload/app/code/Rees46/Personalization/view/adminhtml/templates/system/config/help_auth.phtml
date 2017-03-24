@@ -4,44 +4,44 @@
  */
 ?>
 <div id="rees46_help_block">
-	<style>
-		#rees46_auth_block + .section-config, #rees46_auth_block + div + .section-config {
-			display: none;
-		}
-		.rees46-enabled-icon:before {
-		    font-family: 'Admin Icons';
-		    font-size: 1.5rem;
-		    color: #79a22e;
-		    content: '\e62d';
-		}
-		.rees46-disabled-icon:before {
-		    font-family: 'Admin Icons';
-		    font-size: 1.5rem;
-		    color: #a79d95;
-		    content: '\e62f';
-		}
-	</style>
-	<script type="text/javascript">
-	    var rees46AjaxUrl = '<?php echo $this->getUrl('rees46/ajax/ajax') ?>';
+    <style>
+        #rees46_auth_block + .section-config, #rees46_auth_block + div + .section-config {
+            display: none;
+        }
+        .rees46-enabled-icon:before {
+            font-family: 'Admin Icons';
+            font-size: 1.5rem;
+            color: #79a22e;
+            content: '\e62d';
+        }
+        .rees46-disabled-icon:before {
+            font-family: 'Admin Icons';
+            font-size: 1.5rem;
+            color: #a79d95;
+            content: '\e62f';
+        }
+    </style>
+    <script type="text/javascript">
+        var rees46AjaxUrl = '<?php echo $this->getUrl('rees46/ajax/ajax') ?>';
 
-	    require(['jquery'], function($){
-	        $(document).ready(function() {
-	            rees46Init();
-	        });
-	    });
-	</script>
-	<div class="message message-info info">
-		<p><?php echo __('Go to your REES46 store dashboard to get the access to:'); ?></p>
-		<ul style="padding-left: 40px;">
-			<li><?php echo __('Triggered emails'); ?></li>
-			<li><?php echo __('Email marketing tool'); ?></li>
-			<li><?php echo __('Personalized search'); ?></li>
-			<li><?php echo __('Web push triggered notifications'); ?></li>
-			<li><?php echo __('Instant web push notifications'); ?></li>
-			<li><?php echo __('Audience segmentation'); ?></li>
-			<li><?php echo __('Abandoned cart remarketing tool'); ?></li>
-		</ul>
-		<button id="submitDashboard" class="primary" onclick="return false;"><?php echo __('REES46 dashboard'); ?></button><br><br>
-		<p><?php echo __('Documentation:'); ?> <a href="<?php echo __('http://docs.rees46.com/display/en/Magento+2.x+Extension'); ?>" target="_blank"><?php echo __('http://docs.rees46.com/display/en/Magento+2.x+Extension'); ?></a></p>
-	</div>
+        require(['jquery'], function($){
+            $(document).ready(function() {
+                rees46Init();
+            });
+        });
+    </script>
+    <div class="message message-info info">
+        <p><?php echo __('Go to your REES46 store dashboard to get the access to:'); ?></p>
+        <ul style="padding-left: 40px;">
+            <li><?php echo __('Triggered emails'); ?></li>
+            <li><?php echo __('Email marketing tool'); ?></li>
+            <li><?php echo __('Personalized search'); ?></li>
+            <li><?php echo __('Web push triggered notifications'); ?></li>
+            <li><?php echo __('Instant web push notifications'); ?></li>
+            <li><?php echo __('Audience segmentation'); ?></li>
+            <li><?php echo __('Abandoned cart remarketing tool'); ?></li>
+        </ul>
+        <button id="submitDashboard" class="primary" onclick="return false;"><?php echo __('REES46 dashboard'); ?></button><br><br>
+        <p><?php echo __('Documentation:'); ?> <a href="<?php echo __('http://docs.rees46.com/display/en/Magento+2.x+Extension'); ?>" target="_blank"><?php echo __('http://docs.rees46.com/display/en/Magento+2.x+Extension'); ?></a></p>
+    </div>
 </div>

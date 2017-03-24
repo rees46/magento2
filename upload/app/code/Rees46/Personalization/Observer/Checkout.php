@@ -9,14 +9,14 @@ class Checkout implements \Magento\Framework\Event\ObserverInterface
     protected $_order;
     protected $_track;
 
-	public function __construct(
+    public function __construct(
         \Magento\Checkout\Model\Session $order,
         \Rees46\Personalization\Model\Track $track
-	)
-	{
+    )
+    {
         $this->_order = $order;
         $this->_track = $track;
-	}
+    }
 
     protected function getOrder()
     {
@@ -38,8 +38,8 @@ class Checkout implements \Magento\Framework\Event\ObserverInterface
         return $this->getOrder()->getAllVisibleItems();
     }
 
-	public function execute(\Magento\Framework\Event\Observer $observer)
-	{
+    public function execute(\Magento\Framework\Event\Observer $observer)
+    {
         $js_data = array();
 
         $js_data['order'] = (int)$this->getOrderId();
@@ -56,5 +56,5 @@ class Checkout implements \Magento\Framework\Event\ObserverInterface
         $js = 'r46(\'track\', \'purchase\', ' . json_encode($js_data) . ');';
 
         $this->_track->add($js);
-	}
+    }
 }
