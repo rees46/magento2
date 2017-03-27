@@ -1,4 +1,4 @@
-# REES46 addon for CMS Magento 2
+# REES46 addon for CMS Magento 2.x
 
 ## Documentation
 
@@ -8,6 +8,6 @@ English documentation: [http://docs.rees46.com/display/en/Magento+2.x+Extension]
 
 ## Compatibility
 
-* Magento 2.*
+* Magento 2.x
 
 ![magento](http://api.rees46.com/marker/magento)
