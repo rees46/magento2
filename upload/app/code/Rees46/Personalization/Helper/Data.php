@@ -59,6 +59,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return $this->_objectManager->get('Magento\Framework\App\ProductMetadataInterface')->getVersion();
     }
 
+    public function getModuleVersion()
+    {
+        $module_data = $this->_objectManager->get('Magento\Framework\Module\ModuleListInterface')->getOne('Rees46_Personalization');
+
+        return $module_data['setup_version'];
+    }
+
     public function store()
     {
         return $this->_store->getStore();

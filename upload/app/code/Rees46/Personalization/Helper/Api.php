@@ -44,6 +44,8 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
 
             $params = array(
                 'website' => $this->_data->getStoreUrl(),
+                'cms_version' => $this->_data->getVersion(),
+                'module_version' => $this->_data->getModuleVersion(),
                 'email' => $this->_data->getUserEmail(),
                 'first_name' => $this->_data->getUserFirstName(),
                 'last_name' => $this->_data->getUserLastName(),

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+* Added module version and cms version to lead tracking
+* Added localisations: french, german, finnish, spanish, italian, portuguese, swedish
+
 ## 1.2.0
 * Validation fixes
 
