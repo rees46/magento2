@@ -142,9 +142,13 @@ function rees46ShopRegister()
     });
 }
 
-function rees46ShopXML(auth = false)
+function rees46ShopXML(auth)
 {
     require(['jquery'], function ($) {
+        if (!auth) {
+            auth = false;
+        }
+
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -181,9 +185,17 @@ function rees46ShopXML(auth = false)
     });
 }
 
-function rees46ShopOrders(next = 1, auth = false)
+function rees46ShopOrders(next, auth)
 {
     require(['jquery'], function ($) {
+        if (!next) {
+            next = 1;
+        }
+
+        if (!auth) {
+            auth = false;
+        }
+
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -225,9 +237,17 @@ function rees46ShopOrders(next = 1, auth = false)
     });
 }
 
-function rees46ShopCustomers(next = 1, auth = false)
+function rees46ShopCustomers(next, auth)
 {
     require(['jquery'], function ($) {
+        if (!next) {
+            next = 1;
+        }
+
+        if (!auth) {
+            auth = false;
+        }
+
         $.ajax({
             url: rees46AjaxUrl,
             data: {
@@ -269,9 +289,13 @@ function rees46ShopCustomers(next = 1, auth = false)
     });
 }
 
-function rees46ShopFiles(auth = false)
+function rees46ShopFiles(auth)
 {
     require(['jquery'], function ($) {
+        if (!auth) {
+            auth = false;
+        }
+
         $.ajax({
             url: rees46AjaxUrl,
             data: {

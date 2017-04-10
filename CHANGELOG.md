@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.0
+* Fixed admin script for IE
+
 ## 1.3.0
 * Added module version and cms version to lead tracking
 * Added localisations: french, german, finnish, spanish, italian, portuguese, swedish

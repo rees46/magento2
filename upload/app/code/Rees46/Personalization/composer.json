@@ -2,7 +2,7 @@
     "name": "rees46/personalization",
     "description": "The ultimate plug-n-play marketing suite for your online store growth.",
     "type": "magento2-module",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
