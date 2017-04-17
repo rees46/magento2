@@ -1,4 +1,5 @@
 "Incorrect value for Product Category field.","Virheelliset arvo tuoteryhmä kenttään."
+"Incorrect value for Currency field.","Virheelliset arvo Valuutta-kentässä."
 "Incorrect value for Country field.","Virheelliset arvo Maa-kenttään."
 "Incorrect value for Last Name field.","Virheelliset arvo sukunimi kenttään."
 "Incorrect value for First Name field.","Virheelliset arvo etunimikenttää."
@@ -78,6 +79,7 @@ Email,Email
 "First Name","Etunimi"
 "Last Name","Sukunimi"
 Country,Maa
+Currency,Valuutta
 "Product Category","Tuotekategoria"
 General,Yleinen
 "Created Order Status","Luotu Tilauksen tila"

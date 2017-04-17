@@ -1,4 +1,5 @@
 "Incorrect value for Product Category field.","Ошибка в поле Товарная категория."
+"Incorrect value for Currency field.","Ошибка в поле Валюта."
 "Incorrect value for Country field.","Ошибка в поле Страна."
 "Incorrect value for Last Name field.","Ошибка в поле Фамилия."
 "Incorrect value for First Name field.","Ошибка в поле Имя."
@@ -78,6 +79,7 @@ Email,Email
 "First Name","Имя"
 "Last Name","Фамилия"
 Country,Страна
+Currency,Валюта
 "Product Category","Товарная категория"
 General,Общее
 "Created Order Status","Статус нового заказа"

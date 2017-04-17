@@ -2,7 +2,7 @@
 /**
  * Copyright © 2017 REES46, INC. All rights reserved.
  */
-namespace Rees46\Personalization\Model\Config\Backend\General;
+namespace Rees46\Personalization\Model\Config\Backend\Register;
 
 class Currency extends \Magento\Framework\App\Config\Value
 {

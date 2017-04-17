@@ -1,4 +1,5 @@
 "Incorrect value for Product Category field.","Felaktigt värde för produktkategori fält."
+"Incorrect value for Currency field.","Felaktigt värde för valutafält."
 "Incorrect value for Country field.","Felaktigt värde för fältet Land."
 "Incorrect value for Last Name field.","Felaktigt värde för fältet Efternamn."
 "Incorrect value for First Name field.","Felaktigt värde för fältet Förnamn."
@@ -78,6 +79,7 @@ Email,Email
 "First Name","Förnamn"
 "Last Name","Efternamn"
 Country,Land
+Currency,Valuta
 "Product Category","Produktkategori"
 General,Allmän
 "Created Order Status","Skapad Orderstatus"

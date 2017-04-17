@@ -1,4 +1,5 @@
 "Incorrect value for Product Category field.","Falscher Wert für Produktkategorie-Feld."
+"Incorrect value for Currency field.","Falscher Wert für Währungsfeld."
 "Incorrect value for Country field.","Falscher Wert für Länderfeld."
 "Incorrect value for Last Name field.","Falscher Wert für Nachname Feld."
 "Incorrect value for First Name field.","Falscher Wert für Vorname Feld."
@@ -78,6 +79,7 @@ Email,Email
 "First Name","Vorname"
 "Last Name","Nachname"
 Country,Land
+Currency,Währung
 "Product Category","Produktkategorie"
 General,General
 "Created Order Status","Erstellungsstatus"

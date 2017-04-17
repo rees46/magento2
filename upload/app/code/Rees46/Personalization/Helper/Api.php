@@ -77,6 +77,10 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
             $json['error'] = __('Incorrect value for Product Category field.');
         }
 
+        if ($params['currency_code'] == '') {
+            $json['error'] = __('Incorrect value for Currency field.');
+        }
+
         if ($params['country_code'] == '') {
             $json['error'] = __('Incorrect value for Country field.');
         }
@@ -108,6 +112,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
         $curl_data['first_name'] = $params['first_name'];
         $curl_data['last_name'] = $params['last_name'];
         $curl_data['country_code'] = $params['country_code'];
+        $curl_data['currency_code'] = $params['currency_code'];
 
         $return = $this->_curl->query('POST', 'https://rees46.com/api/customers', json_encode($curl_data));
 

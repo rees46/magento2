@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.1
+* Added currency to registration form
+
 ## 1.4.0
 * Fixed admin script for IE
 
