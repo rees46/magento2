@@ -83,6 +83,7 @@ function rees46UserRegister()
                 first_name: $('#rees46_register_first_name').val(),
                 last_name: $('#rees46_register_last_name').val(),
                 country_code: $('#rees46_register_country_code').val(),
+                currency_code: $('#rees46_register_currency_code').val(),
                 category: $('#rees46_register_category').val()
             },
             type: 'post',
