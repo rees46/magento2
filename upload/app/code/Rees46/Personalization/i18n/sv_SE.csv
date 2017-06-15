@@ -57,6 +57,7 @@ Register,Registrera
 "REES46 dashboard","REES46 dashboard"
 Documentation:,Dokumentation:
 http://docs.rees46.com/display/en/Magento+2.x+Extension,http://docs.rees46.com/display/en/Magento+2.x+Extension
+Support:,Stöd:
 Send,Skicka
 More,Mer
 "Add to Cart","Lägg till i kundvagn"
@@ -87,7 +88,6 @@ General,Allmän
 "Cancelled Order Status","Inställd Orderstatus"
 "Cron XML","Cron XML"
 Logging,Skogsavverkning
-"Product Recommendations Blocks","Produktrekommendationer Blocks"
 Actions,Handlingar
 "REES46 Recommendations","REES46 Rekommendationer"
 "REES46 Product Recommendations Block","REES46 Produktrekommendationer Block"

@@ -58,6 +58,7 @@ Register,Rekisteröidy
 Documentation:,Dokumentointi:
 http://docs.rees46.com/display/en/Magento+2.x+Extension,http://docs.rees46.com/display/en/Magento+2.x+Extension
 Send,Lähettää
+Support:,Tuki:
 More,Lisää
 "Add to Cart","Lisää koriin"
 "In stock","Varastossa"
@@ -87,7 +88,6 @@ General,Yleinen
 "Cancelled Order Status","Peruutettu Tilauksen tila"
 "Cron XML","Cron XML"
 Logging,Hakkuu
-"Product Recommendations Blocks","Tuote Suositukset Blocks"
 Actions,Toimet
 "REES46 Recommendations","REES46 suositukset"
 "REES46 Product Recommendations Block","REES46 tuotesuositukset Block"

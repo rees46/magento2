@@ -57,6 +57,7 @@ Register,Neu registrieren
 "REES46 dashboard","REES46 dashboard"
 Documentation:,Dokumentation:
 http://docs.rees46.com/display/en/Magento+2.x+Extension,http://docs.rees46.com/display/en/Magento+2.x+Extension
+Support:,Unterstützung:
 Send,Senden
 More,Mehr
 "Add to Cart","In den Warenkorb legen"
@@ -87,7 +88,6 @@ General,General
 "Cancelled Order Status","Abgebrochener Bestellstatus"
 "Cron XML","Cron XML"
 Logging,Protokollierung
-"Product Recommendations Blocks","Produktempfehlungen Blocks"
 Actions,Aktionen
 "REES46 Recommendations","REES46 Empfehlungen"
 "REES46 Product Recommendations Block","REES46 Produkt Empfehlungen Block"

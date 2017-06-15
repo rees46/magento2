@@ -14,10 +14,13 @@
             <label>Settings</label>
             <tab>rees46</tab>
             <resource>Rees46_Personalization::settings</resource>
-            <group id="auth" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="style" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <frontend_model>Rees46\Personalization\Block\Adminhtml\System\Config\Style</frontend_model>
+            </group>
+            <group id="auth" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                 <frontend_model>Rees46\Personalization\Block\Adminhtml\System\Config\Auth</frontend_model>
             </group>
-            <group id="login" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="login" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                 <attribute type="expanded">1</attribute>
                 <label>Authorization Form</label>
                 <comment><![CDATA[To authorize, please log in on rees46.com and copy & paste Store Key and Secret Key from Store Settings (Dashboard > Settings > Store Settings) to the fields below.]]></comment>
@@ -31,7 +34,7 @@
                     <frontend_model>Rees46\Personalization\Block\Adminhtml\System\Config\LoginButton</frontend_model>
                 </field>
             </group>
-            <group id="register" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="register" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                 <attribute type="expanded">1</attribute>
                 <label>Registration Form</label>
                 <comment><![CDATA[To register, please fill out the form below. Authorization, in this case, is performed automatically.]]></comment>
@@ -69,12 +72,11 @@
                     <frontend_model>Rees46\Personalization\Block\Adminhtml\System\Config\RegisterButton</frontend_model>
                 </field>
             </group>
-            <group id="help" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="help" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
                 <attribute type="expanded">1</attribute>
                 <frontend_model>Rees46\Personalization\Block\Adminhtml\System\Config\Help</frontend_model>
             </group>
-            <group id="general" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
-                <attribute type="expanded">1</attribute>
+            <group id="general" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
                 <field id="store_key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Store Key</label>
@@ -94,11 +96,6 @@
                     <label>Cancelled Order Status</label>
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
                 </field>
-                <!--field id="xml_currency" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Product Сurrency</label>
-                    <source_model>Magento\Config\Model\Config\Source\Locale\Currency</source_model>
-                    <backend_model>Rees46\Personalization\Model\Config\Backend\General\Currency</backend_model>
-                </field-->
                 <field id="cron_status" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Cron XML</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -108,12 +105,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
-            <group id="recommendations" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
-                <attribute type="expanded">1</attribute>
-                <label>Product Recommendations Blocks</label>
-            </group>
             <group id="actions" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
-                <attribute type="expanded">1</attribute>
                 <label>Actions</label>
                 <field id="table" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <frontend_model>Rees46\Personalization\Block\Adminhtml\System\Config\Actions</frontend_model>

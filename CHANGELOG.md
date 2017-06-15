@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0
+* Added support email
+* Changed admin scripts
+
 ## 1.4.1
 * Added currency to registration form
 

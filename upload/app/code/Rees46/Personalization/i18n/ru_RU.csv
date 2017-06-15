@@ -57,6 +57,7 @@ Register,Регистрация
 "REES46 dashboard","Панель настроек REES46"
 Documentation:,Документация:
 http://docs.rees46.com/display/en/Magento+2.x+Extension,http://docs.rees46.com/display/R46D/Magento+2
+Support:,Поддержка:
 Send,Отправить
 More,Подробнее
 "Add to Cart","Добавить в корзину"
@@ -87,7 +88,6 @@ General,Общее
 "Cancelled Order Status","Статус отмененного заказа"
 "Cron XML","Cron XML"
 Logging,Логирование
-"Product Recommendations Blocks","Блоки товарных рекомендаций"
 Actions,Действия
 "REES46 Recommendations","REES46 Recommendations"
 "REES46 Product Recommendations Block","Блок товарных рекомендаций"

@@ -4,24 +4,374 @@
  */
 ?>
 <div id="rees46_help_block">
-    <style>
-        #rees46_auth_block {
-            display: block !important;
-        }
-        #rees46_auth_block + .section-config,
-        #rees46_auth_block + div + .section-config,
-        #config-edit-form .section-config {
-            display: none;
-        }
-    </style>
     <script type="text/javascript">
-        var rees46AjaxUrl = '<?php echo $this->getUrl('rees46/ajax/ajax') ?>';
+    var rees46AjaxUrl = '<?php echo $this->getUrl('rees46/ajax/ajax') ?>';
 
-        require(['jquery'], function($){
-            $(document).ready(function() {
-                rees46Init();
+    require(['jquery'], function($) {
+        $(function() {
+            $('#container').prepend('<div class="messages" id="rees46_messages"></div>');
+
+            $('#rees46_login_button').click(function () {
+                $('#rees46_auth_block + .section-config').fadeIn();
+                $('#rees46_auth_block + div + .section-config').css('display', 'none');
             });
+
+            $('#rees46_register_button').click(function () {
+                $('#rees46_auth_block + .section-config').css('display', 'none');
+                $('#rees46_auth_block + div + .section-config').fadeIn();
+            });
+
+            $('#submitUserRegister').click(function () {
+                rees46UserRegister();
+            });
+
+            $('#submitShopLogin').click(function () {
+                rees46ShopXML(true);
+            });
+
+            $('#submitShopXML').click(function () {
+                rees46ShopXML();
+            });
+
+            $('#submitShopOrders').click(function () {
+                rees46ShopOrders();
+            });
+
+            $('#submitShopCustomers').click(function () {
+                rees46ShopCustomers();
+            });
+
+            $('#submitShopFile1').click(function () {
+                rees46ShopFiles();
+            });
+
+            $('#submitShopFile2').click(function () {
+                rees46ShopFiles();
+            });
+
+            $('#submitDashboard').click(function () {
+                rees46Dashboard();
+            });
+
+            rees46LeadTracking();
         });
+
+        function rees46LeadTracking()
+        {
+            $.ajax({
+                url: rees46AjaxUrl,
+                data: {
+                    form_key: window.FORM_KEY,
+                    action: 'rees46LeadTracking',
+                },
+                type: 'post',
+                dataType: 'json',
+                showLoader: false
+            });
+        }
+
+        function rees46UserRegister()
+        {
+            $.ajax({
+                url: rees46AjaxUrl,
+                data: {
+                    form_key: window.FORM_KEY,
+                    action: 'rees46UserRegister',
+                    email: $('#rees46_register_email').val(),
+                    phone: $('#rees46_register_phone').val(),
+                    first_name: $('#rees46_register_first_name').val(),
+                    last_name: $('#rees46_register_last_name').val(),
+                    country_code: $('#rees46_register_country_code').val(),
+                    currency_code: $('#rees46_register_currency_code').val(),
+                    category: $('#rees46_register_category').val()
+                },
+                type: 'post',
+                dataType: 'json',
+                showLoader: true
+            }).done(function (json) {
+                $('#rees46_messages').empty();
+                $('html, body').animate({scrollTop: 0}, 'slow');
+
+                if (json.success) {
+                    $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + json.success + '</div></div>');
+
+                    rees46ShopRegister();
+                }
+
+                if (json.message) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.message + '</div></div>');
+                } else if (json.error) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.error + '</div></div>');
+                }
+            });
+        }
+
+        function rees46ShopRegister()
+        {
+            $.ajax({
+                url: rees46AjaxUrl,
+                data: {
+                    form_key: window.FORM_KEY,
+                    action: 'rees46ShopRegister',
+                },
+                type: 'post',
+                dataType: 'json',
+                showLoader: true
+            }).done(function (json) {
+                $('#rees46_messages').empty();
+                $('html, body').animate({scrollTop: 0}, 'slow');
+
+                if (json.success) {
+                    $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + json.success + '</div></div>');
+
+                    rees46ShopXML(true);
+                }
+
+                if (json.message) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.message + '</div></div>');
+                } else if (json.error) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.error + '</div></div>');
+                }
+            });
+        }
+
+        function rees46ShopXML(auth)
+        {
+            if (!auth) {
+                auth = false;
+            }
+
+            $.ajax({
+                url: rees46AjaxUrl,
+                data: {
+                    form_key: window.FORM_KEY,
+                    action: 'rees46ShopXML',
+                    store_key: $('#rees46_login_store_key').val(),
+                    secret_key: $('#rees46_login_secret_key').val()
+                },
+                type: 'post',
+                dataType: 'json',
+                showLoader: true
+            }).done(function (json) {
+                $('#rees46_messages').empty();
+                $('html, body').animate({scrollTop: 0}, 'slow');
+
+                if (json.success) {
+                    $('#submitShopXML').remove();
+
+                    $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + json.success + '</div></div>');
+
+                    if (auth) {
+                        rees46ShopOrders(1, true);
+                    }
+                }
+
+                if (json.message) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.message + '</div></div>');
+                } else if (json.error) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.error + '</div></div>');
+                }
+            });
+        }
+
+        function rees46ShopOrders(next, auth)
+        {
+            if (!next) {
+                next = 1;
+            }
+
+            if (!auth) {
+                auth = false;
+            }
+
+            $.ajax({
+                url: rees46AjaxUrl,
+                data: {
+                    form_key: window.FORM_KEY,
+                    action: 'rees46ShopOrders',
+                    next: next,
+                },
+                type: 'post',
+                dataType: 'json',
+                showLoader: true
+            }).done(function (json) {
+                $('#rees46_messages').empty();
+                $('html, body').animate({scrollTop: 0}, 'slow');
+
+                if (json.success) {
+                    $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + json.success + '</div></div>');
+                }
+
+                if (json.next) {
+                    rees46ShopOrders(json.next);
+                } else {
+                    if (!auth && json.success) {
+                        $('#submitShopOrders').remove();
+                    }
+
+                    if (auth) {
+                        rees46ShopCustomers(1, true);
+                    }
+                }
+
+                if (json.message) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.message + '</div></div>');
+                } else if (json.error) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.error + '</div></div>');
+                }
+            });
+        }
+
+        function rees46ShopCustomers(next, auth)
+        {
+            if (!next) {
+                next = 1;
+            }
+
+            if (!auth) {
+                auth = false;
+            }
+
+            $.ajax({
+                url: rees46AjaxUrl,
+                data: {
+                    form_key: window.FORM_KEY,
+                    action: 'rees46ShopCustomers',
+                    next: next,
+                },
+                type: 'post',
+                dataType: 'json',
+                showLoader: true
+            }).done(function (json) {
+                $('#rees46_messages').empty();
+                $('html, body').animate({scrollTop: 0}, 'slow');
+
+                if (json.success) {
+                    $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + json.success + '</div></div>');
+                }
+
+                if (json.next) {
+                    rees46ShopCustomers(json.next);
+                } else {
+                    if (!auth && json.success) {
+                        $('#submitShopCustomers').remove();
+                    }
+
+                    if (auth) {
+                        rees46ShopFiles(true);
+                    }
+                }
+
+                if (json.message) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.message + '</div></div>');
+                } else if (json.error) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.error + '</div></div>');
+                }
+            });
+        }
+
+        function rees46ShopFiles(auth)
+        {
+            if (!auth) {
+                auth = false;
+            }
+
+            $.ajax({
+                url: rees46AjaxUrl,
+                data: {
+                    form_key: window.FORM_KEY,
+                    action: 'rees46ShopFiles',
+                },
+                type: 'post',
+                dataType: 'json',
+                showLoader: true
+            }).done(function (json) {
+                $('#rees46_messages').empty();
+                $('html, body').animate({scrollTop: 0}, 'slow');
+
+                if (json.success) {
+                    $('#submitShopFile1').remove();
+                    $('#submitShopFile2').remove();
+
+                    $.map(json.success, function (success) {
+                        $('#rees46_messages').append('<div class="message message-success success"><div data-ui-id="messages-message-success">' + success + '</div></div>');
+                    });
+                }
+
+                if (json.message) {
+                    $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + json.message + '</div></div>');
+                } else if (json.error) {
+                    $.map(json.error, function (error) {
+                        $('#rees46_messages').append('<div class="message message-error error"><div data-ui-id="messages-message-error">' + error + '</div></div>');
+                    });
+                }
+
+                if (auth) {
+                    if ($('#rees46_login_store_key').val() == '' && $('#rees46_login_secret_key').val() == '') {
+                        rees46ShopFinish();
+                    } else {
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1000);
+                    }
+                }
+            });
+        }
+
+        function rees46ShopFinish()
+        {
+            $.ajax({
+                url: rees46AjaxUrl,
+                data: {
+                    form_key: window.FORM_KEY,
+                    action: 'rees46ShopFinish',
+                },
+                type: 'post',
+                dataType: 'json',
+                showLoader: true
+            }).done(function (json) {
+                if (json) {
+                    $('body').append(json);
+
+                    setTimeout(function () {
+                        $('#submitShopFinish').submit();
+                    }, 1000);
+
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
+            });
+        }
+
+        function rees46Dashboard()
+        {
+            $.ajax({
+                url: rees46AjaxUrl,
+                data: {
+                    form_key: window.FORM_KEY,
+                    action: 'rees46Dashboard',
+                },
+                type: 'post',
+                dataType: 'json',
+                showLoader: true
+            }).done(function (json) {
+                $('#formDashboard').remove();
+
+                if (json['form']) {
+                    $('body').append(json['form']);
+
+                    setTimeout(function () {
+                        $('#formDashboard').submit();
+                    }, 500);
+                }
+
+                if (json['url']) {
+                    window.open(json['url'], '_blank');
+                }
+            });
+        }
+    });
     </script>
     <div class="message message-info info">
         <p><?php echo __('Go to your REES46 store dashboard to get the access to:'); ?></p>
@@ -36,5 +386,6 @@
         </ul>
         <button id="submitDashboard" class="primary" onclick="return false;"><?php echo __('REES46 dashboard'); ?></button><br><br>
         <p><?php echo __('Documentation:'); ?> <a href="<?php echo __('http://docs.rees46.com/display/en/Magento+2.x+Extension'); ?>" target="_blank"><?php echo __('http://docs.rees46.com/display/en/Magento+2.x+Extension'); ?></a></p>
+        <p><?php echo __('Support:'); ?> <a href="mailto:support@rees46.com?subject=Support for REES46 Magento 2 extension" target="_blank">support@rees46.com</a></p>
     </div>
 </div>
