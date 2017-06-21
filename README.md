@@ -14,4 +14,8 @@ English documentation: [http://docs.rees46.com/display/en/Magento+2.x+Extension]
 
 [support@rees46.com](mailto:support@rees46.com)
 
+## License
+
+MIT
+
 ![magento](http://api.rees46.com/marker/magento)
