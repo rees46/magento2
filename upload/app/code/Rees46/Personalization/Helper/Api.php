@@ -10,25 +10,28 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
     protected $_curl;
     protected $_data;
     protected $_logger;
+    protected $_cache;
 
     public function __construct(
         \Rees46\Personalization\Helper\Config $config,
         \Rees46\Personalization\Helper\Curl $curl,
         \Rees46\Personalization\Helper\Data $data,
-        \Rees46\Personalization\Helper\Logger $logger
+        \Rees46\Personalization\Helper\Logger $logger,
+        \Magento\Framework\App\CacheInterface $cache
     )
     {
         $this->_config = $config;
         $this->_curl = $curl;
         $this->_data = $data;
         $this->_logger = $logger;
+        $this->_cache = $cache;
     }
 
     public function rees46ShopCategories()
     {
         $categories = array();
 
-        $return = $this->_curl->query('GET', 'https://rees46.com/api/categories');
+        $return = $this->_curl->query('GET', 'https://app.rees46.com/api/categories');
 
         if (isset($return['result'])) {
             $categories = $return['result'];
@@ -40,7 +43,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
     public function rees46LeadTracking()
     {
         if (!$this->_config->isLeadTracking()) {
-            $url = 'https://rees46.com/trackcms/magento?';
+            $url = 'https://app.rees46.com/trackcms/magento?';
 
             $params = array(
                 'website' => $this->_data->getStoreUrl(),
@@ -67,6 +70,8 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
 
             $this->_config->setValue('rees46/actions/action_lead', true);
         }
+
+        $this->_cache->clean('config');
     }
 
     public function rees46UserRegister($params = array())
@@ -114,7 +119,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
         $curl_data['country_code'] = $params['country_code'];
         $curl_data['currency_code'] = $params['currency_code'];
 
-        $return = $this->_curl->query('POST', 'https://rees46.com/api/customers', json_encode($curl_data));
+        $return = $this->_curl->query('POST', 'https://app.rees46.com/api/customers', json_encode($curl_data));
 
         $result = json_decode($return['result'], true);
 
@@ -133,6 +138,8 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
                 $json['success'] = __('Account successfully registered.');
             }
         }
+
+        $this->_cache->clean('config');
 
         return $json;
     }
@@ -167,7 +174,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
         $curl_data['yml_file_url'] = $this->_data->getStoreUrl() . 'xml';
         $curl_data['cms_id'] = 10;
 
-        $return = $this->_curl->query('POST', 'https://rees46.com/api/shops', json_encode($curl_data));
+        $return = $this->_curl->query('POST', 'https://app.rees46.com/api/shops', json_encode($curl_data));
 
         $result = json_decode($return['result'], true);
 
@@ -181,6 +188,8 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
 
             $json['success'] = __('Store successfully created.');
         }
+
+        $this->_cache->clean('config');
 
         return $json;
     }
@@ -213,7 +222,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
 
         $curl_data['yml_file_url'] = $this->_data->getStoreUrl() . 'rees46/feed/xml';
 
-        $return = $this->_curl->query('PUT', 'https://rees46.com/api/shop/set_yml', json_encode($curl_data));
+        $return = $this->_curl->query('PUT', 'https://app.rees46.com/api/shop/set_yml', json_encode($curl_data));
 
         if ($return['info']['http_code'] < 200 || $return['info']['http_code'] >= 300) {
             $json['error'] = __('Could not export product feed.');
@@ -227,6 +236,8 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
 
             $json['success'] = __('Product feed successfully exported to REES46.');
         }
+
+        $this->_cache->clean('config');
 
         return $json;
     }
@@ -297,7 +308,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
 
             $curl_data['orders'] = $export_data;
 
-            $return = $this->_curl->query('POST', 'http://api.rees46.com/import/orders', json_encode($curl_data));
+            $return = $this->_curl->query('POST', 'https://api.rees46.com/import/orders', json_encode($curl_data));
  
             if ($return['info']['http_code'] < 200 || $return['info']['http_code'] >= 300) {
                 $json['error'] = __('Could not export orders.');
@@ -319,6 +330,8 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
 
             $json['success'] = __('No available orders for export.');
         }
+
+        $this->_cache->clean('config');
 
         return $json;
     }
@@ -374,7 +387,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
 
             $curl_data['audience'] = $export_data;
 
-            $return = $this->_curl->query('POST', 'http://api.rees46.com/import/audience', json_encode($curl_data));
+            $return = $this->_curl->query('POST', 'https://api.rees46.com/import/audience', json_encode($curl_data));
 
             if ($return['info']['http_code'] < 200 || $return['info']['http_code'] >= 300) {
                 $json['error'] = __('Could not export customers.');
@@ -396,6 +409,8 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
 
             $json['success'] = __('No available customers for export.');
         }
+
+        $this->_cache->clean('config');
 
         return $json;
     }
@@ -446,12 +461,14 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
             }
         }
 
+        $this->_cache->clean('config');
+
         return $json;
     }
 
     public function rees46ShopFinish()
     {
-        $url = 'https://rees46.com/api/customers/login';
+        $url = 'https://app.rees46.com/api/customers/login';
         $api_key = $this->_config->getValue('rees46/general/api_key');
         $api_secret = $this->_config->getValue('rees46/general/api_secret');
 
@@ -466,7 +483,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
     public function rees46Dashboard()
     {
         if ($this->_config->getValue('rees46/general/api_key') != '' && $this->_config->getValue('rees46/general/api_secret') == '') {
-            $url = 'https://rees46.com/api/customers/login';
+            $url = 'https://app.rees46.com/api/customers/login';
             $api_key = $this->_config->getValue('rees46/general/api_key');
             $api_secret = $this->_config->getValue('rees46/general/api_secret');
 
@@ -475,7 +492,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
             $json['form'] .= '<input type="hidden" name="api_secret" value="' . $api_secret . '">';
             $json['form'] .= '</form>';
         } else {
-            $json['url'] = 'https://rees46.com/customers/sign_in';
+            $json['url'] = 'https://app.rees46.com/customers/sign_in';
         }
 
         return $json;
@@ -487,7 +504,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
         $curl_data['shop_secret'] = $this->_config->getValue('rees46/general/secret_key');
         $curl_data['item_ids'] = $product_id;
 
-        $return = $this->_curl->query('POST', 'http://api.rees46.com/import/disable', json_encode($curl_data));
+        $return = $this->_curl->query('POST', 'https://api.rees46.com/import/disable', json_encode($curl_data));
 
         $this->_logger->log('REES46: Excluded of recomended product_id [' . $product_id . '] (' . $return['info']['http_code'] . ').');
     }
@@ -498,7 +515,7 @@ class Api extends \Magento\Framework\App\Helper\AbstractHelper
         $curl_data['shop_secret'] = $this->_config->getValue('rees46/general/secret_key');
         $curl_data['orders'] = $order_data;
 
-        $return = $this->_curl->query('POST', 'http://api.rees46.com/import/sync_orders', json_encode($curl_data));
+        $return = $this->_curl->query('POST', 'https://api.rees46.com/import/sync_orders', json_encode($curl_data));
 
         $this->_logger->log('REES46: autoexport status [' . $order_status_id . '] of order_id [' . $order_data['id'] . '] (' . $return['info']['http_code'] . ').');
     }

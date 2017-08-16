@@ -5,5 +5,5 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Rees46_Personalization" setup_version="1.5.0" />
+    <module name="Rees46_Personalization" setup_version="1.6.0" />
 </config>

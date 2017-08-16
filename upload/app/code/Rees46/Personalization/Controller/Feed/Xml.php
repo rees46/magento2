@@ -6,7 +6,7 @@ namespace Rees46\Personalization\Controller\Feed;
 
 class Xml extends \Magento\Framework\App\Action\Action
 {
-    const LIMIT = 500;
+    const LIMIT = 1000;
 
     protected $_forward;
     protected $_config;
@@ -179,7 +179,17 @@ class Xml extends \Magento\Framework\App\Action\Action
 
             foreach ($products as $product) {
                 if ($product['available']) {
-                    $xml .= '      <offer id="' . $product['id'] . '" available="true">' . "\n";
+                    $quantity = $this->_data->getProductQuantity($product['id']);
+
+                    if ($quantity > 10) {
+                        $leftovers = 'lot';
+                    } elseif ($quantity > 1) {
+                        $leftovers = 'few';
+                    } else {
+                        $leftovers = 'one';
+                    }
+
+                    $xml .= '      <offer id="' . $product['id'] . '" available="true" leftovers="' . $leftovers . '">' . "\n";
                     $xml .= '        <url>' . $this->replacer($product['url']).'</url>' . "\n";
                     $xml .= '        <price>' . number_format($product['price'], 2, '.', '') . '</price>' . "\n";
                     $xml .= '        <currencyId>' . $this->_data->getStoreCurrency() . '</currencyId>' . "\n";

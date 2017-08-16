@@ -213,6 +213,17 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return $stock;
     }
 
+    public function getProductQuantity($productId = null, $storeId = null)
+    {
+        $stock = $this->_stock->getStockItem($productId, $storeId)->getQty();
+
+        if (!$stock) {
+            $stock = 0;
+        }
+
+        return $stock;
+    }
+
     public function getCustomers($data = array())
     {
         $customers = $this->_customer->create()
