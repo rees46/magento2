@@ -1,12 +1,9 @@
 # Changelog
 
 ## 1.6.0
-* Added setting of product tax
-* Added setting of product currency
 * Added leftovers tag to XML
 * Added possibility of a zero limit for the widget
 * Fixed cache cleaning during installation
-* Fixed loading of the init script via Require JS
 * Fixed API links
 * Changed xml limit
 

@@ -68,12 +68,7 @@ class Recommendation extends \Magento\Framework\View\Element\Template implements
 
             $params = array();
 
-            if ($settings['limit'] > 0) {
-                $params['limit'] = (int)$settings['limit'];
-            } else {
-                $params['limit'] = 4;
-            }
-
+            $params['limit'] = (int)$settings['limit'];
             $params['discount'] = (int)$settings['discount'];
 
             if ($settings['brands'] || $settings['exclude_brands']) {
