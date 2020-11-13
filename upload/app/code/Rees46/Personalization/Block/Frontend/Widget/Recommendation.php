@@ -166,7 +166,7 @@ class Recommendation extends \Magento\Framework\View\Element\Template implements
                 $settings['params'] = json_encode($params, true);
             }
 
-            $settings['module_id'] = md5(http_build_query($settings));
+            $settings['module_id'] = hash("md5", http_build_query($settings));
 
             $this->setData('settings', $settings);
             $this->setTemplate('widget/rees46.phtml');
